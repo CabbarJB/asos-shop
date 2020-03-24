@@ -1,4 +1,3 @@
-
 //CREATE USER ICON DROPDOWN
 
 function createUserDropdown() {
@@ -26,20 +25,20 @@ function createUserDropdown() {
     let menuContainerBody = document.createElement('div');
     menuContainerBody.classList.add('user-icon-dropdown-body');
     let itemsList = document.createElement('ul');
-    let createSingleListItem = function (iconClasses,itemTxt) {
-    let singleItem = document.createElement('li');
-    singleItem.classList.add('user-icon-dropdown-body-item');
-    let icon= document.createElement('i');
+    let createSingleListItem = function (iconClasses, itemTxt) {
+        let singleItem = document.createElement('li');
+        singleItem.classList.add('user-icon-dropdown-body-item');
+        let icon = document.createElement('i');
 
-    for (let elem of iconClasses){
-        icon.classList.add(elem);
-    }
+        for (let elem of iconClasses) {
+            icon.classList.add(elem);
+        }
 
-    let itemTitle = document.createElement("div");
-    itemTitle.classList.add("user-icon-dropdown-body-item-title");
-    itemTitle.innerText = itemTxt;
-    singleItem.appendChild(icon);
-    singleItem.appendChild(itemTitle);
+        let itemTitle = document.createElement("div");
+        itemTitle.classList.add("user-icon-dropdown-body-item-title");
+        itemTitle.innerText = itemTxt;
+        singleItem.appendChild(icon);
+        singleItem.appendChild(itemTitle);
 
         return singleItem;
     };
@@ -58,7 +57,7 @@ function createUserDropdown() {
 // SHOW DROP DOWN WHEN HOVERED
 
 
-function showDropdownOnHover(){
+function showDropdownOnHover() {
     let userIcon = document.querySelector('.nav-right-user-icon');
     let navRight = document.querySelector('.nav-right');
 
@@ -66,7 +65,7 @@ function showDropdownOnHover(){
     let dropDownMenu = document.querySelector('.user-icon-dropdown');
 
     userIcon.addEventListener('mouseover', () => {
-        if (screen.width>1024) {
+        if (screen.width > 1024) {
             dropDownMenu.style.top = "38px";
             dropDownMenu.style.zIndex = '99';
             dropDownMenu.style.opacity = '1';
@@ -78,77 +77,70 @@ function showDropdownOnHover(){
 // HIDE DROPDOWN ON MOUSE LEAVE
 
 
-   function hideDropdownOnLeave(){
-       let dropDownMenu = document.querySelector('.user-icon-dropdown');
-       dropDownMenu.addEventListener('mouseleave', () => {
-           dropDownMenu.style.top = "-162px";
-           dropDownMenu.style.zIndex = '-100';
-           dropDownMenu.style.opacity = '0'
-       });
+function hideDropdownOnLeave() {
+    let dropDownMenu = document.querySelector('.user-icon-dropdown');
+    dropDownMenu.addEventListener('mouseleave', () => {
+        dropDownMenu.style.top = "-162px";
+        dropDownMenu.style.zIndex = '-100';
+        dropDownMenu.style.opacity = '0'
+    });
 
-       let userIconDropdownCloseBtn = document.querySelector('.user-icon-dropdown-close-btn')
-       userIconDropdownCloseBtn.addEventListener('click', event=>{
-           dropDownMenu.style.top = "-162px";
-           dropDownMenu.style.zIndex = '-100';
-           dropDownMenu.style.opacity = '0'
-       })
-   }
-
-
+    let userIconDropdownCloseBtn = document.querySelector('.user-icon-dropdown-close-btn')
+    userIconDropdownCloseBtn.addEventListener('click', event => {
+        dropDownMenu.style.top = "-162px";
+        dropDownMenu.style.zIndex = '-100';
+        dropDownMenu.style.opacity = '0'
+    })
+}
 
 
 // EXPAND NAV-EXTENSION TABS ON HOVER
 
-function handleNavExtensionHover(){
+function handleNavExtensionHover() {
     let navExtensionTabs = document.querySelectorAll('.nav-extension-list-item');
     let expandedWindows = document.querySelectorAll('.nav-extension-item-expanded');
-    for (let i =0;i<navExtensionTabs.length;i++){
-        navExtensionTabs[i].addEventListener('mouseover', ()=>{
-            for (let j = 0;j<navExtensionTabs.length;j++){
+    for (let i = 0; i < navExtensionTabs.length; i++) {
+        navExtensionTabs[i].addEventListener('mouseover', () => {
+            for (let j = 0; j < navExtensionTabs.length; j++) {
                 expandedWindows[j].classList.add('invisible');
-                setTimeout(()=>{
-                    expandedWindows[j].style.display = 'none'
-                },200)
+                expandedWindows[j].style.display = 'none'
             }
             expandedWindows[i].classList.remove('invisible')
-            setTimeout(()=>{
-                expandedWindows[i].style.display = 'flex'
-            },300)
+            expandedWindows[i].style.display = 'flex'
 
         })
     }
 
-    expandedWindows.forEach(item=>{
-        item.addEventListener('mouseleave', event=>{
-            for (let elem of expandedWindows){
+    expandedWindows.forEach(item => {
+        item.addEventListener('mouseleave', event => {
+            for (let elem of expandedWindows) {
                 elem.classList.add('invisible');
-                setTimeout(()=>{
-                    elem.style.display = 'none'
-                },300)
+                elem.style.display = 'none'
 
             }
         })
     });
 }
-if (document.querySelector('.nav-extension-wrapper')){
+
+if (document.querySelector('.nav-extension-wrapper')) {
     handleNavExtensionHover()
 }
 
 
 // LOWER OPACITY ON BRAND HOVER
 
-function lowerOpacityOnBrandHover(){
+function lowerOpacityOnBrandHover() {
 
     let brands = document.querySelectorAll('.trending-brands-list-item');
-    brands.forEach(item=>{
-        item.addEventListener('mouseover',event=>{
-            for (let it=0;it<brands.length;it++){
+    brands.forEach(item => {
+        item.addEventListener('mouseover', event => {
+            for (let it = 0; it < brands.length; it++) {
                 brands[it].style.opacity = "0.3";
             }
             event.currentTarget.style.opacity = '1';
         });
-        item.addEventListener('mouseleave', event=>{
-            for (let e of brands){
+        item.addEventListener('mouseleave', event => {
+            for (let e of brands) {
                 e.style.opacity = '1';
             }
         })
@@ -156,20 +148,20 @@ function lowerOpacityOnBrandHover(){
 
 }
 
-if (document.querySelector('.trending-brands-list-item')){
+if (document.querySelector('.trending-brands-list-item')) {
     lowerOpacityOnBrandHover()
 }
 
 //BURGER MENU OPEN CLOSE
 
-function handleBurgerMenuUsage(){
+function handleBurgerMenuUsage() {
     let burgerBtn = document.querySelector('.small-screen-burger-btn');
     let leftMenu = document.querySelector('.small-screen-left-menu');
-    burgerBtn.addEventListener('click', (event)=>{
+    burgerBtn.addEventListener('click', (event) => {
         leftMenu.style.left = '0'
         let blurredBg = document.createElement('div');
         blurredBg.classList.add('blurry-bg');
-        blurredBg.addEventListener('click', ()=>{
+        blurredBg.addEventListener('click', () => {
             leftMenu.style.left = '-320px';
             document.body.removeChild(blurredBg);
             document.body.style.overflow = 'auto'
@@ -180,7 +172,7 @@ function handleBurgerMenuUsage(){
 
 
     let leftMenuCloseBtn = document.querySelector('.left-menu-close-btn');
-    leftMenuCloseBtn.addEventListener('click', event=>{
+    leftMenuCloseBtn.addEventListener('click', event => {
         leftMenu.style.left = '-320px';
         let blurredBg = document.querySelector('.blurry-bg')
         document.body.removeChild(blurredBg);
@@ -189,23 +181,19 @@ function handleBurgerMenuUsage(){
 }
 
 
-
-
-
-
 // OPEN SMALL SCREEN SEARCH MENU
 
 
 function openSearchWindow() {
     let openSearchWindowBtn = document.querySelector('.small-screen-search-icon');
     let searchWindow = document.querySelector('.small-screen-search-window');
-    openSearchWindowBtn.addEventListener('click', event=>{
+    openSearchWindowBtn.addEventListener('click', event => {
         searchWindow.style.display = 'block';
         document.body.style.overflow = 'hidden'
     });
 
     let searchWindowCloseBtn = document.querySelector('.search-window-close-btn');
-    searchWindowCloseBtn.addEventListener('click', event=>{
+    searchWindowCloseBtn.addEventListener('click', event => {
         searchWindow.style.display = 'none';
         document.body.style.overflow = 'auto'
 
@@ -217,20 +205,18 @@ function openSearchWindow() {
 
 function handleNavHideShowOnScroll() {
     let previousPos = window.pageYOffset;
-    window.onscroll = ()=>{
+    window.onscroll = () => {
         let currentPos = window.pageYOffset;
-        if (previousPos>currentPos){
+        if (previousPos > currentPos) {
             document.querySelector('.nav').style.top = '0'
-        }
-        else {
+        } else {
             document.querySelector('.nav').style.top = '-60px'
         }
         previousPos = currentPos;
     }
 }
 
-if (document.querySelector('.nav'))
-{
+if (document.querySelector('.nav')) {
     showDropdownOnHover()
     hideDropdownOnLeave()
     handleBurgerMenuUsage()

@@ -13,6 +13,9 @@
     margin-left: 15px;
 }
 
+.visited-path-item:last-child:after{
+    content: none;
+}
 .category-title{
     padding:25px 0px;
     text-align: center;
@@ -194,4 +197,64 @@ footer{
 .filter-menu-tab-sort-expanded-item:hover{
     background-color: grey;
     color: white;
+}
+
+.right-sliding-menu{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 100%;
+    z-index: 99999;
+    display: flex;
+    height: 100vh;
+    transition: ease-in 0.3s;
+}
+.right-sliding-menu-close-btn{
+    width: 64px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #2d2d2d;
+    font-size: 30px;
+}
+.right-sliding-menu-window{
+    width: 100%;
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.right-sliding-menu-window-top{
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 22px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.right-sliding-menu-window-main{
+    padding: 0px 20px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    font-size: 14px;
+    overflow-y: scroll;
+}
+.right-sliding-menu-window-main-item{
+    padding: 20px 0px;
+    border-bottom: 1px solid lightgrey;
+}
+.right-sliding-menu-window-bottom{
+    padding: 15px;
+    background-color: #fff;
+}
+.right-sliding-menu-window-submit-btn{
+    width: 100%;
+    padding: 15px 0px;
+    border: none;
+    background-color: #2d2d2d;
+    color: #fff;
 }
